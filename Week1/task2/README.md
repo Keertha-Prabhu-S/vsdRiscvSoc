@@ -9,7 +9,7 @@ Create a minimal C "Hello World" program and successfully cross-compile it for t
 ## ✅ Steps Followed
 
 
-###1: Create the Hello World C Program:
+### 1: Create the Hello World C Program:
 
 
 Create a minimal C program that demonstrates basic functionality and printf usage.
@@ -38,7 +38,7 @@ riscv32-unknown-elf-gcc -o hello.elf hello.c
 
 Check that the compiled binary is a valid 32-bit RISC-V executable.
 
-# Check the ELF file properties and architecture
+###  Check the ELF file properties and architecture
 
 file hello.elf
 
@@ -54,3 +54,4 @@ hello.elf: ELF 32-bit LSB executable, UCB RISC-V, RVC, soft-float ABI, version 1
 
 # output:
 
+![Output Screenshot](https://github.com/Keertha-Prabhu-S/vsdRiscvSoc/blob/main/Week1/output.png?raw=true)
