@@ -1,4 +1,4 @@
-# Week 1: Install & Sanity-Check the RISC-V Toolchain
+# Week 1: RISC-V Bare-Metal Toolchain & Debugging
 
 This document outlines the tasks completed in **Week 1** of the RISC-V SoC Lab, focusing on installing the RISC-V bare-metal toolchain and verifying the functionality of key tools (`gcc`, `objdump`, `gdb`).
 
