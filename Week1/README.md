@@ -4,7 +4,7 @@ This document outlines the tasks completed in **Week 1** of the RISC-V SoC Lab, 
 
 ---
 
-## 🔧 Task
+##  Task 1:
 
 Install the RISC-V toolchain and verify that it is working properly.
 
@@ -43,4 +43,5 @@ riscv32-unknown-elf-gdb --version
 
 ## OUTPUT:
 
+![Toolchain Output](https://github.com/Keertha-Prabhu-S/vsdRiscvSoc/blob/main/Week1/output.png?raw=true)
 
