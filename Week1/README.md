@@ -183,7 +183,8 @@ grep -A 20 "<main>:" hello.dump
 ```
 
 View disassembly with context around main function
-```bash
+
+
 grep -B 5 -A 20 "<main>:" hello.dump
 
 ## OUTPUT:
