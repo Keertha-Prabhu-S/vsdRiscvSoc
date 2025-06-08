@@ -103,3 +103,32 @@ hello.elf: ELF 32-bit LSB executable, UCB RISC-V, RVC, soft-float ABI, version 1
 # output:
 
 ![QEMU Output](docs/images/task2_qemu.png)  
+
+# Task 3: From C to Assembly - Generate and Analyze Assembly Code
+
+Generate assembly code from the C "Hello, RISC-V" program and perform detailed analysis of the function prologue and epilogue
+ to understand RISC-V calling conventions, stack frame management, and instruction encoding patterns.
+
+## ✅ Steps Followed
+
+### 1:Generate assembly code from the C file (hello.c):
+
+riscv32-unknown-elf-gcc -S -O0 -fno-pic -march=rv32imc -mabi=ilp32 hello.c -o hello.s
+
+### 2:Verify that the generated file is an ASCII text assembly source:
+
+file hello.s
+
+### 3:View the first 20 lines of the assembly code:
+
+head -20 hello.s
+ 
+### 4:View the full hello.s file with line numbers using nl and less:
+
+nl -ba hello.s | less
+
+## OUTPUT:
+
+![hello.s](docs/images/task3/task3_assembly.png)
+
+![Stack Management](docs/images/task3/task3_prologue.png)
