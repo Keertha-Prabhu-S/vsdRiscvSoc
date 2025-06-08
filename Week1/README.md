@@ -132,3 +132,64 @@ nl -ba hello.s | less
 ![RISC-V Assembly Output](docs/images/task3/task3_generation.png)
 
 ![Prologue/Epilogue](docs/images/task3/task3_stack.png)
+
+
+# Task 4: Hex Dump & Disassembly Analysis
+
+Convert the compiled RISC-V ELF binary to Intel HEX format for hardware deployment and perform detailed disassembly analysis to understand machine code structure, instruction encoding,
+ and memory layout of the cross-compiled program.[1]
+
+## ✅ Steps Followed
+
+### Step 1: Generate Complete Disassembly
+
+Create a detailed disassembly of the ELF binary to examine machine code and instruction encoding.
+Generate comprehensive disassembly and save to file
+```bash
+riscv32-unknown-elf-objdump -d hello.elf > hello.dump
+```
+Verify disassembly file was created
+```bash
+ls -la hello.dump
+```
+View the complete disassembly output
+```bash
+cat hello.dump
+```
+
+### Step 2: Convert ELF to Intel HEX Format
+
+Generate Intel HEX format suitable for programming embedded systems and hardware simulators.
+Convert ELF binary to Intel HEX format
+```bash
+riscv32-unknown-elf-objcopy -O ihex hello.elf hello.hex
+```
+Verify HEX file creation
+```bash
+ls -la hello.hex
+```
+View the Intel HEX output
+```bash
+cat hello.hex
+```
+
+### Step 3: Analyze Main Function Disassembly
+
+Focus on the main function to understand the column structure and instruction encoding.
+
+Extract main function disassembly for detailed analysis
+```bash
+grep -A 20 "<main>:" hello.dump
+```
+
+View disassembly with context around main function
+```bash
+grep -B 5 -A 20 "<main>:" hello.dump
+
+## OUTPUT:
+
+![TASK4_1 OUTPUT](docs/images/task4/task4_1.png)
+
+![TASK4_2 OUTPUT](docs/images/task4/task4_2.png)
+
+![TASK4_3 OUTPUT](docs/images/task4/task4_3.png)
