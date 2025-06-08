@@ -188,8 +188,8 @@ grep -B 5 -A 20 "<main>:" hello.dump
 
 ## OUTPUT:
 
-![TASK4_1 OUTPUT](docs/images/task4/task4_1.png)
+![Main Function Disassembly - Part 1](docs/images/task4/task4_1.png)
 
-![TASK4_2 OUTPUT](docs/images/task4/task4_2.png)
+![Main Function Disassembly - Part 2](docs/images/task4/task4_2.png)
 
-![TASK4_3 OUTPUT](docs/images/task4/task4_3.png)
+![Main Function Disassembly - Part 3](docs/images/task4/task4_3.png)
