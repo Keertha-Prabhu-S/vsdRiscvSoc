@@ -129,6 +129,6 @@ nl -ba hello.s | less
 
 ## OUTPUT:
 
-![hello.s](docs/images/task3/task3_assembly.png)
+![RISC-V Assembly Output](docs/images/task3/task3_generation.png)
 
-![Stack Management](docs/images/task3/task3_prologue.png)
+![Prologue/Epilogue](docs/images/task3/task3_stack.png)
