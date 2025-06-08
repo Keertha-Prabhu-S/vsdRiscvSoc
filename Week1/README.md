@@ -43,11 +43,8 @@ riscv32-unknown-elf-gdb --version
 
 ## OUTPUT:
 
-![Toolchain Output](https://github.com/Keertha-Prabhu-S/vsdRiscvSoc/blob/main/Week1/output.png?raw=true)
+![Toolchain Check](docs/images/task1_toolchain.png)  
 
-
-
-# Task 2 - RISC-V ELF Output
 
 # Task 2: Cross-Compile "Hello, RISC-V"
 
@@ -105,4 +102,4 @@ hello.elf: ELF 32-bit LSB executable, UCB RISC-V, RVC, soft-float ABI, version 1
 
 # output:
 
-![Output Screenshot](https://github.com/Keertha-Prabhu-S/vsdRiscvSoc/blob/main/Week1/output.png?raw=true)
+![QEMU Output](docs/images/task2_qemu.png)  
