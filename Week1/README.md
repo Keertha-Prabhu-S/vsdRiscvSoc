@@ -368,7 +368,7 @@ Use RISC-V GDB to debug the cross-compiled `hello.elf` binary, set breakpoints a
 
 ![TASK 6 OUTPUT](docs/images/task6/task6_2.png)
 
-# 🖥️ Task 7: Running Under an Emulator - RISC-V QEMU Emulation
+#  Task 7: Running Under an Emulator - RISC-V QEMU Emulation
 
 Run the bare-metal RISC-V ELF binary under an emulator (QEMU or Spike) to simulate hardware execution and demonstrate UART console
  output, verifying that cross-compiled programs can execute properly in a virtual RISC-V environment.
@@ -376,3 +376,35 @@ Run the bare-metal RISC-V ELF binary under an emulator (QEMU or Spike) to simula
 ## OUTPUT:
 ![TASK 7 OUTPUT](docs/images/task7/task7_1.png)
 ![TASK 7 OUTPUT](docs/images/task7/task7_2.png)
+
+
+# ⚙️ Task 8: Exploring GCC Optimization - Assembly Comparison (-O0 vs -O2)
+
+Compare the assembly output of the same C program compiled with no optimization (-O0) and high optimization (-O2) flags using the RISC-V GCC toolchain. Analyze the differences in generated assembly code to understand compiler optimizations including
+ dead-code elimination, register allocation, and function inlining.
+
+## OUTPUT:
+
+![TASK 8 OUTPUT](docs/images/task8/task8_1.png)
+![TASK 8 OUTPUT](docs/images/task8/task8_2.png)
+
+# 🔧 Task 9: Inline Assembly Basics - RISC-V CSR Access & Constraints
+
+Write a C function that demonstrates inline assembly usage in RISC-V, specifically for reading Control and Status Registers (CSR) like the cycle counter at address 0xC00. Explain each constraint used in the inline assembly syntax including output
+ constraints (`"=r"`), input constraints (`"r"`), and the importance of the `volatile` keyword.
+
+## OUTPUT:
+![TASK 9 OUTPUT](docs/images/task9/task9_1.png)
+![TASK 9 OUTPUT](docs/images/task9/task9_2.png)
+![TASK 9 OUTPUT](docs/images/task9/task9_3.png)
+
+# 💾 Task 10: Memory-Mapped I/O Demo - GPIO Control with Volatile
+
+Demonstrate bare-metal C programming for memory-mapped I/O by creating a GPIO register toggle function at address 0x10012000. Show how the `volatile` keyword prevents compiler optimization from eliminating essential hardware register accesses, and
+ explain alignment requirements for memory-mapped operations.
+
+## OUTPUT:
+![TASK 10 OUTPUT](docs/images/task10/task10_1.png)
+![TASK 10 OUTPUT](docs/images/task10/task10_2.png)
+![TASK 10 OUTPUT](docs/images/task10/task10_3.png)
+
