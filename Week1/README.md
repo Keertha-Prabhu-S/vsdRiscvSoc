@@ -343,7 +343,7 @@ markdown
 
 ## ✅ Verification
 
-```bash
+
 # Check stack alignment:
 grep "addi.*sp" hello.s | grep -E "16|32|48|64"
 
