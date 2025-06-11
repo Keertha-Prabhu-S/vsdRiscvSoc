@@ -368,4 +368,11 @@ Use RISC-V GDB to debug the cross-compiled `hello.elf` binary, set breakpoints a
 
 ![TASK 6 OUTPUT](docs/images/task6/task6_2.png)
 
+# 🖥️ Task 7: Running Under an Emulator - RISC-V QEMU Emulation
 
+Run the bare-metal RISC-V ELF binary under an emulator (QEMU or Spike) to simulate hardware execution and demonstrate UART console
+ output, verifying that cross-compiled programs can execute properly in a virtual RISC-V environment.
+
+## OUTPUT:
+![TASK 7 OUTPUT](docs/images/task7/task7_1.png)
+![TASK 7 OUTPUT](docs/images/task7/task7_2.png)
