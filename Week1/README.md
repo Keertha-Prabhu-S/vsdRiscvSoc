@@ -364,7 +364,8 @@ Use RISC-V GDB to debug the cross-compiled `hello.elf` binary, set breakpoints a
 
 ## OUTPUT:
 
-![TASK 6 OUTPUT](docs/images/task5/task6_1.png)
-![TASK 6 OUTPUT](docs/images/task5/task6_2.png)
+![TASK 6 OUTPUT](docs/images/task6/task6_1.png)
+
+![TASK 6 OUTPUT](docs/images/task6/task6_2.png)
 
 
