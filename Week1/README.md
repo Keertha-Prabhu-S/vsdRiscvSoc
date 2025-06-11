@@ -652,6 +652,8 @@ main:
 ![TASK 8 OUTPUT](docs/images/task8/task8_1.png)
 ![TASK 8 OUTPUT](docs/images/task8/task8_2.png)
 
+
+
 # 🔧 Task 9: Inline Assembly Basics - RISC-V CSR Access & Constraints
 
 Write a C function that demonstrates inline assembly usage in RISC-V, specifically for reading Control and Status Registers (CSR) like the cycle counter at address 0xC00. Explain each constraint used in the inline assembly syntax including output
