@@ -356,3 +356,15 @@ grep -B1 "ecall" hello.s | grep -o "a[0-7]" | sort | uniq -c
 ## OUTPUT:
 
 ![TASK 5 OUTPUT](docs/images/task5/task5_1.png)
+
+# 🔍 Task 6: Stepping with GDB - RISC-V Debugging
+
+Use RISC-V GDB to debug the cross-compiled `hello.elf` binary, set breakpoints at main function, step through execution, and
+ inspect register contents and assembly instructions to understand program flow at the machine code level.
+
+## OUTPUT:
+
+![TASK 6 OUTPUT](docs/images/task5/task6_1.png)
+![TASK 6 OUTPUT](docs/images/task5/task6_2.png)
+
+
