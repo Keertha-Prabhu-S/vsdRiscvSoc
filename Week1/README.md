@@ -113,9 +113,14 @@ Generate assembly code from the C "Hello, RISC-V" program and perform detailed a
 
 ### 1:Generate assembly code from the C file (hello.c):
 
+use the riscv32-unknown-elf-gcc compiler with specific flags to prevent optimizations and disable position-independent 
+code (for clarity):
+
 riscv32-unknown-elf-gcc -S -O0 -fno-pic -march=rv32imc -mabi=ilp32 hello.c -o hello.s
 
 ### 2:Verify that the generated file is an ASCII text assembly source:
+
+Use the file command to confirm that the output is an ASCII assembly source file:
 
 file hello.s
 
@@ -127,6 +132,7 @@ head -20 hello.s
 
 nl -ba hello.s | less
 
+This command displays the entire assembly file with line numbers, which helps in analyzing instruction sequences and structure.
 ## OUTPUT:
 
 ![RISC-V Assembly Output](docs/images/task3/task3_generation.png)
@@ -194,3 +200,159 @@ grep -B 5 -A 20 "<main>:" hello.dump
 ![Main Function Disassembly - Part 2](docs/images/task4/task4_2.png)
 
 ![Main Function Disassembly - Part 3](docs/images/task4/task4_3.png)
+
+# 📚 Task 5: RISC-V ABI & Register Cheat-Sheet:
+
+Create a comprehensive RISC-V Application Binary Interface (ABI) reference guide that maps all 32 integer registers to their ABI names
+ and documents the complete calling convention rules for function arguments, return values, and register preservation requirements.
+
+### Step 1: Create Register Reference Section
+markdown
+
+## 📋 RISC-V Register Reference
+
+| Register | ABI Name | Preserved | Purpose                          |
+|----------|----------|-----------|----------------------------------|
+| x0       | zero     | Immutable | Hard-wired zero                  |
+| x1       | ra       | Caller    | Return address                   |
+| x2       | sp       | Callee    | Stack pointer (16-byte aligned)  |
+| x3       | gp       | -         | Global pointer                   |
+| [...]    | [...]    | [...]     | [...]                            |
+| x31      | t6       | Caller    | Temporary register 6             |
+
+### Step 2: Add Calling Convention Rules
+markdown
+
+## 📜 Calling Convention
+
+*Argument Passing:*
+- First 8 arguments: a0-a7 (x10-x17)
+- Additional arguments: Stack (right-to-left)
+- Return values: a0-a1
+
+*Preservation Rules:*
+| Category       | Registers       | Responsibility |
+|---------------|----------------|----------------|
+| Callee-saved  | sp, s0-s11     | Must preserve  |
+| Caller-saved  | ra, t0-t6, a0-a7 | May clobber   |
+
+### Step 3: Add Verification Checklist
+markdown
+
+## 🔍 ABI Compliance Checklist
+
+bash
+# Verify function prologue/epilogue
+grep -A 5 "main:" hello.s | grep -E "sp|ra|s0"
+
+# Check system call arguments
+grep "ecall" hello.s -B 1 | grep "a[0-7]"
+
+# Examine stack operations
+grep "sp" hello.s | grep -v "addi"
+
+Key Requirements:
+
+    16-byte stack alignment maintained
+
+    ra saved for non-leaf functions
+
+    s-registers preserved if modified
+
+    Arguments properly passed in a0-a7
+
+text
+
+
+### Step 4: Add Quick Reference Examples
+markdown
+## ⚡ Quick Reference
+
+*Function Prologue:*
+assembly
+addi sp, sp, -16    # Allocate stack
+sw ra, 12(sp)       # Save return address
+sw s0, 8(sp)        # Save frame pointer
+
+Function Epilogue:
+assembly
+
+lw s0, 8(sp)        # Restore frame pointer
+lw ra, 12(sp)       # Restore return address
+addi sp, sp, 16     # Deallocate stack
+ret
+
+System Call Example:
+assembly
+
+li a7, 64           # write syscall number
+li a0, 1            # stdout
+la a1, message      # buffer address
+li a2, 12           # message length
+ecall
+
+text
+
+
+### Step 5: Add Complete Usage Section
+markdown
+## 🛠️ Complete Usage Guide
+
+1. *Register Types:*
+   - *Temporaries (t0-t6):* Caller-saved, for short-lived values
+   - *Saved (s0-s11):* Callee-saved, for long-lived values
+   - *Arguments (a0-a7):* Function parameters/return values
+
+2. *Stack Rules:*
+   - Always keep sp 16-byte aligned
+   - Grow downward (higher to lower addresses)
+   - Save registers to stack before modification
+
+3. *Common Patterns:*
+   assembly
+   # Save multiple registers
+   addi sp, sp, -32
+   sw ra, 28(sp)
+   sw s0, 24(sp)
+   sw s1, 20(sp)
+
+text
+
+
+### Step 6: Add Visual Reference (Optional)
+markdown
+## 🖼️ Register Map Visualization
+
+Special Purpose:
+┌─────┬─────┬────────────────────┐
+│ x0 │ zero│ Hard-wired 0 │
+│ x1 │ ra │ Return Address │
+│ x2 │ sp │ Stack Pointer │
+└─────┴─────┴────────────────────┘
+
+Argument Registers:
+┌─────┬─────┬────────────────────┐
+│ x10 │ a0 │ Arg 0 / Return 0 │
+│ ... │ ... │ ... │
+│ x17 │ a7 │ Arg 7 / Syscall # │
+└─────┴─────┴────────────────────┘
+text
+
+### Final Step: Add Verification Commands
+markdown
+
+## ✅ Verification
+
+```bash
+# Check stack alignment:
+grep "addi.*sp" hello.s | grep -E "16|32|48|64"
+
+# Verify register saves/restores:
+grep -E "sw|lw" hello.s | grep -E "ra|s[0-9]"
+
+# Count ecall arguments:
+grep -B1 "ecall" hello.s | grep -o "a[0-7]" | sort | uniq -c
+
+## OUTPUT:
+
+![TASK 5 OUTPUT](docs/images/task5/task5_1.png)
