@@ -640,7 +640,7 @@ main:
     ...
 
 -O2 (High Optimization)
-assembly
+...assembly
 
 main:
     lui  a0,%hi(.LCO)   # Direct register usage
