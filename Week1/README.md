@@ -632,20 +632,20 @@ markdown
 ## GCC Optimization Comparison (-O0 vs -O2)
 
 ## `-O0` (No Optimization)
-```assembly
+assembly
 main:
     addi sp,sp,-16      # Stack setup
     sw   ra,12(sp)      # Save return address
     sw   s0,8(sp)       # Save frame pointer
-    ...
+   
 
 -O2 (High Optimization)
-...assembly
+assembly
 
 main:
     lui  a0,%hi(.LCO)   # Direct register usage
     addi sp,sp,-16      # Minimal stack
-    ...
+    
 
 ## OUTPUT:
 
@@ -733,7 +733,7 @@ printf("  Required for CSR reads and hardware operations\n");
 return 0;
 }
 EOF
-```
+...
 ### Step 2: Compile Successfully
 
 Compile the program using the working RISC-V toolchain.
